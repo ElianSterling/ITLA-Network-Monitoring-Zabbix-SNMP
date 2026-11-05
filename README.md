@@ -118,6 +118,30 @@ ethtool -K eth0 tx off
 
 La corrección se configuró de forma persistente mediante un servicio `systemd` de tipo `oneshot`. Consulta [Troubleshooting](docs/troubleshooting.md) para diagnóstico y verificaciones.
 
+## 📸 Evidencias reales
+
+### Topología implementada en GNS3
+
+![Topología GNS3 R1 SW1 SW2 PC1 Cloud1](evidencias/topologia/01-topologia-gns3.png)
+
+### Dashboard centralizado
+
+![Dashboard Zabbix con disponibilidad, tráfico, CPU y estado de interfaces](evidencias/zabbix/02-dashboard-zabbix.png)
+
+### Detección y recuperación de incidentes
+
+| Incidencia de conectividad detectada | Recuperación de R1 y SW1 |
+|---|---|
+| ![Incidente ICMP de R1 y SW1](evidencias/alertas/03-incidencia-icmp.png) | ![Recuperación registrada por Zabbix](evidencias/alertas/04-recuperacion-incidentes.png) |
+
+### SNMP: métricas y equipos registrados
+
+| Métricas de Gi0/0 | Equipos monitorizados |
+|---|---|
+| ![Métricas de Gi0/0](evidencias/snmp/05-metricas-r1-gi0-0.png) | ![Equipos SNMP en Zabbix](evidencias/snmp/06-equipos-snmp.png) |
+
+Consulta el [catálogo de evidencias con explicación técnica](evidencias/README.md) para más detalles.
+
 ## 📂 Organización
 
 ```text
@@ -128,11 +152,16 @@ La corrección se configuró de forma persistente mediante un servicio `systemd`
 │   ├── monitoreo-zabbix.md
 │   └── troubleshooting.md
 ├── configs/         # Exportaciones Cisco saneadas (pendientes)
-├── evidencias/      # Capturas de GNS3, DHCP, SNMP y alertas (pendientes)
+├── evidencias/
+│   ├── README.md
+│   ├── topologia/    # Captura GNS3
+│   ├── zabbix/      # Dashboard
+│   ├── snmp/        # Métricas y equipos
+│   └── alertas/     # Incidencia y recuperación
 └── video/           # Enlace de demostración (pendiente)
 ```
 
-Las carpetas de evidencia y configuración se incorporarán cuando sus archivos hayan sido revisados y anonimizados.
+Las capturas de evidencia ya están publicadas en sus carpetas; las configuraciones Cisco sanitizadas y el video siguen pendientes de incorporación.
 
 ## 🔐 Seguridad
 
