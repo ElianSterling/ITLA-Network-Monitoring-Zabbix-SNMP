@@ -24,4 +24,3 @@ PRUEBAS REALIZADAS:
 
 El repositorio incluye arquitectura, configuraciones Cisco sanitizadas, resultados de validación y evidencias.
 
-NOTA: El enlace del video fue facilitado por el estudiante. Su contenido y duración no han sido verificados de forma independiente.
