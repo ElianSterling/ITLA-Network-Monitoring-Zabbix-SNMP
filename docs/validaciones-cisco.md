@@ -13,6 +13,8 @@ Resultados observados en las consolas del laboratorio el **5 de noviembre de 202
 | Vencimiento de la concesión de PC1 | 12 de noviembre de 2026 |
 | ACL SNMP | `ZABBIX-SNMP-ACL`: permite `10.25.13.0/24` |
 
+**Prueba ICMP desde PC1:** `ping 10.25.13.1` recibió **5/5 respuestas**, entre **6.719 y 11.692 ms**. La concesión en VPCS mostraba `10.25.13.101/24`, DNS `1.1.1.1` y `8.8.8.8`, y lease de 7 días. [Evidencia textual completa](../evidencias/dhcp/07-dhcp-pc1-y-conectividad.md).
+
 El comando `show ip dhcp binding` registró la concesión de PC1. El servidor ZABBIX-SRV usa actualmente `10.25.13.100/24` en `eth0`, verificado con `ip -4 -br addr show dev eth0`; esta dirección todavía no está reservada formalmente en R1.
 
 ## SW1 — Switch principal
