@@ -17,7 +17,7 @@ La red de monitoreo usa `10.25.13.0/24`, con R1 `10.25.13.1`, SW1 `10.25.13.2`, 
 
 R1 proporciona un pool denominado `LAN-ZABBIX` con red `10.25.13.0/24`, puerta de enlace `10.25.13.1`, DNS `1.1.1.1` y `8.8.8.8`, y concesión de siete días.
 
-Exclusiones: `10.25.13.1–10.25.13.99` y `10.25.13.200–10.25.13.254`. El rango asignable queda entre `10.25.13.100` y `10.25.13.199`. En pruebas anteriores PC1 recibió `10.25.13.100` y ZABBIX-SRV utilizó `10.25.13.101`. **En la última prueba VPCS PC1 recibió `10.25.13.101/24`, gateway `10.25.13.1`, DNS `1.1.1.1` y `8.8.8.8`, con concesión de 7 días.** Dado que `.101` fue utilizado por ZABBIX-SRV anteriormente, su dirección actual debe comprobarse antes de descartar un conflicto de IP. Estas asignaciones no son reservas DHCP permanentes.
+Exclusiones: `10.25.13.1–10.25.13.99` y `10.25.13.200–10.25.13.254`. El rango asignable queda entre `10.25.13.100` y `10.25.13.199`. En pruebas anteriores PC1 recibió `10.25.13.100` y ZABBIX-SRV utilizó `10.25.13.101`. **En la última prueba VPCS PC1 recibió `10.25.13.101/24`, gateway `10.25.13.1`, DNS `1.1.1.1` y `8.8.8.8`, con concesión de 7 días.** La verificación posterior mostró **ZABBIX-SRV eth0 = `10.25.13.100/24`** y **PC1 = `10.25.13.101/24`**; no hay duplicación activa. R1 confirmó la concesión DHCP `.101` a PC1, con expiración el **12 de noviembre de 2026**. No aparece una concesión `.100` en la tabla actual de R1. Para prevenir un futuro conflicto al añadir clientes, queda pendiente garantizar que `.100` esté reservada para ZABBIX-SRV o asignar al servidor una IP estática fuera del pool. No se ha modificado la configuración del router en esta etapa.
 
 ## Alojamiento
 
@@ -34,4 +34,4 @@ SNMPv2c de solo lectura está habilitado en R1/SW1/SW2, con una ACL de administr
 
 Las pruebas de conectividad (ICMP), DHCP y SNMP confirmaron el funcionamiento. El apagado temporal del enlace Gi0/0 de SW2 aisló R1 y SW1 del contenedor de monitoreo, permitiendo demostrar alertas de indisponibilidad y recuperación.
 
-> Evidencias GNS3/Zabbix y configuración saneada de R1 incorporadas; pendientes las configuraciones de SW1 y SW2 y la verificación de la IP actual del servidor.
+> Evidencias GNS3/Zabbix y configuración saneada de R1 incorporadas; pendientes las configuraciones de SW1 y SW2 y formalizar la reserva de la IP del servidor.
