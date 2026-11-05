@@ -1,26 +1,70 @@
-# SW2 — Cisco IOSvL2 15.2 (versión saneada)
+! SW2 - Cisco IOSvL2 15.2
+! Configuracion documentada y sanitizada
+! Comunidad SNMP y banners propietarios eliminados.
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+hostname SW2
+no aaa new-model
+ip cef
+no ipv6 cef
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface GigabitEthernet0/0
+ negotiation auto
+!
+interface GigabitEthernet0/1
+ negotiation auto
+!
+interface GigabitEthernet0/2
+ negotiation auto
+!
+interface GigabitEthernet0/3
+ negotiation auto
+!
+interface GigabitEthernet1/0
+ negotiation auto
+!
+interface GigabitEthernet1/1
+ negotiation auto
+!
+interface GigabitEthernet1/2
+ negotiation auto
+!
+interface GigabitEthernet1/3
+ negotiation auto
+!
+interface Vlan1
+ description MANAGEMENT-SNMP
+ ip address 10.25.13.3 255.255.255.0
+!
+ip default-gateway 10.25.13.1
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+!
+ip access-list standard ZABBIX-SNMP-ACL
+ permit 10.25.13.0 0.0.0.255
+!
+! [REDACTED] Comunidad SNMPv2c RO asociada a ZABBIX-SNMP-ACL.
+snmp-server location ITLA-Homelab-Proxmox
+snmp-server contact Network-Administrator
+!
+control-plane
+line con 0
+line aux 0
+line vty 0 4
+ login
+end
 
-## Red y administración
-- Hostname: SW2
-- VLAN de administración: 1, 10.25.13.3/24
-- Gateway: 10.25.13.1
-- Gi0/0: hacia SW1, up/up
-- Gi0/1: hacia PC1, up/up
-- Gi0/2: hacia Cloud1/ZABBIX-SRV, up/up
-- Gi0/3 y Gi1/0–Gi1/3: down/down
-
-## Configuración comprobada
-- Spanning Tree: PVST
-- HTTP y HTTPS de administración: deshabilitados
-- SNMPv2c: solo lectura, comunidad intencionalmente omitida
-- ACL ZABBIX-SNMP-ACL: permite 10.25.13.0/24
-- Contacto SNMP: Network-Administrator
-- Ubicación SNMP: ITLA-Homelab-Proxmox
-
-## Resultados de la consulta
-- 91,139 paquetes SNMP recibidos; 91,139 enviados
-- 26,783 Get requests; 1 Get-next; 0 Set requests
-- 0 errores por versión o comunidad
-- 0 traps enviadas
-
-No se publican comunidades SNMP ni banners propietarios.
+! VALIDACION EN LA CAPTURA
+! Gi0/0 up/up; Gi0/1 up/up; Gi0/2 up/up; Vlan1 10.25.13.3 up/up
+! VLAN 1 active, Gi0/0 - Gi1/3
+! show snmp: 91139 paquetes entrada y salida; 26783 Get-request;
+! 1 Get-next; 0 Set; 0 errores de version o comunidad.
