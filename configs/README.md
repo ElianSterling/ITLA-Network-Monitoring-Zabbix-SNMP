@@ -5,8 +5,8 @@ Exportaciones de los dispositivos del laboratorio GNS3. Cada archivo refleja la 
 | Dispositivo | Archivo | Estado |
 |---|---|---|
 | R1 · Router IOSv 15.9 | [R1-sanitized.txt](R1-sanitized.txt) | ✅ Exportación revisada |
-| SW1 · Switch IOSvL2 | `SW1-sanitized.txt` | ⏳ Pendiente de recopilar |
-| SW2 · Switch IOSvL2 | `SW2-sanitized.txt` | ⏳ Pendiente de recopilar |
+| SW1 · Switch IOSvL2 | [SW1-sanitized.txt](SW1-sanitized.txt) | ✅ Exportación saneada publicada |
+| SW2 · Switch IOSvL2 | [SW2-sanitized.txt](SW2-sanitized.txt) | ✅ Exportación saneada publicada |
 
 ## Verificaciones de R1 (5 de noviembre de 2026)
 
@@ -26,3 +26,11 @@ Exportaciones de los dispositivos del laboratorio GNS3. Cada archivo refleja la 
 - Se excluyeron banners de licencia y texto legal de IOSv, que no forman parte de los parámetros funcionales del laboratorio.
 - No se incluyen imágenes ni software propietario de Cisco.
 - SNMPv2c es adecuado exclusivamente para este laboratorio aislado; para un entorno real usar SNMPv3, segmentación y permisos mínimos.
+
+## Verificaciones de los switches
+
+- **SW1:** VLAN 1 `10.25.13.2` activa; Gi0/0 y Gi0/1 `up/up`; 90,762 paquetes SNMP recibidos y enviados; ningún error de versión/comunidad en la captura.
+- **SW2:** VLAN 1 `10.25.13.3` activa; Gi0/0, Gi0/1 y Gi0/2 `up/up`; 91,139 paquetes SNMP recibidos y enviados; ningún error de versión/comunidad.
+- En ambos se omitieron comunidades SNMP y banners propietarios, sin modificar los equipos activos.
+
+Consulta las [validaciones Cisco](../docs/validaciones-cisco.md) para resultados detallados.
