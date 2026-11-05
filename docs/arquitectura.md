@@ -34,4 +34,4 @@ SNMPv2c de solo lectura está habilitado en R1/SW1/SW2, con una ACL de administr
 
 Las pruebas de conectividad (ICMP), DHCP y SNMP confirmaron el funcionamiento. El apagado temporal del enlace Gi0/0 de SW2 aisló R1 y SW1 del contenedor de monitoreo, permitiendo demostrar alertas de indisponibilidad y recuperación.
 
-> Evidencias GNS3/Zabbix y configuración saneada de R1 incorporadas; pendientes las configuraciones de SW1 y SW2 y formalizar la reserva de la IP del servidor.
+> Evidencias de topología y Zabbix, configuraciones saneadas de R1, SW1 y SW2 y [prueba de DHCP y conectividad de PC1](../evidencias/dhcp/07-dhcp-pc1-y-conectividad.md) incorporadas. Quedan pendientes capturas adicionales, la presentación en video y formalizar la reserva de la IP del servidor.
