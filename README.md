@@ -4,6 +4,14 @@
 
 ### Monitoreo de infraestructura Cisco virtualizada con GNS3, Proxmox VE y Zabbix 7.0 LTS
 
+**🎬 VIDEO DEMOSTRATIVO DE LA PRÁCTICA 5**
+
+[![Ver video demostrativo en YouTube](https://img.shields.io/badge/%E2%96%B6%20VER%20VIDEO%20DE%20LA%20PR%C3%81CTICA-YouTube-red?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/V94S0YOxVjs)
+
+[**https://youtu.be/V94S0YOxVjs**](https://youtu.be/V94S0YOxVjs)
+
+<br>
+
 **Cisco IOSv · IOSvL2 · SNMPv2c · DHCP · Debian 12 · MariaDB · Nginx**
 
 ![Estado](https://img.shields.io/badge/Estado-Laboratorio%20validado-2ea44f)
