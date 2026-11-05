@@ -1,0 +1,27 @@
+INSTITUTO TECNOLÓGICO DE LAS AMÉRICAS (ITLA)
+PRÁCTICA 5 — MONITOREO DE INFRAESTRUCTURA DE RED CON ZABBIX Y SNMP
+
+ESTUDIANTE: Elian Sterling Severino Mejía
+MATRÍCULA: 2025-1331
+FECHA DE ENTREGA: 5 de noviembre de 2026
+
+REPOSITORIO GITHUB:
+https://github.com/ElianSterling/ITLA-Network-Monitoring-Zabbix-SNMP
+
+VIDEO DEMOSTRATIVO:
+https://youtu.be/V94S0YOxVjs
+
+DESCRIPCIÓN:
+Implementación de una infraestructura de red virtualizada en GNS3 sobre Proxmox VE, con un router Cisco IOSv (R1), dos switches Cisco IOSvL2 (SW1 y SW2), cliente PC1 y un servidor Zabbix 7.0 LTS en Debian 12.
+
+PRUEBAS REALIZADAS:
+- Direccionamiento IPv4 y servidor DHCP en R1.
+- Asignación DHCP verificada en PC1 (10.25.13.101/24).
+- Conectividad entre PC1 y el router: 5 respuestas ICMP exitosas de 5 intentos.
+- Monitoreo SNMPv2c de solo lectura para R1, SW1 y SW2.
+- Dashboard Zabbix con disponibilidad de equipos, gráficos e indicadores de interfaces.
+- Pruebas documentadas de detección y recuperación de incidentes de conectividad.
+
+El repositorio incluye arquitectura, configuraciones Cisco sanitizadas, resultados de validación y evidencias.
+
+NOTA: El enlace del video fue facilitado por el estudiante. Su contenido y duración no han sido verificados de forma independiente.
