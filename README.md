@@ -164,6 +164,7 @@ Consulta el [catálogo de evidencias con explicación técnica](evidencias/READM
 │   ├── monitoreo-zabbix.md
 │   └── troubleshooting.md
 ├── configs/         # Configuraciones saneadas de R1, SW1 y SW2
+├── entrega/         # TXT de entrega con enlaces
 ├── evidencias/
 │   ├── README.md
 │   ├── topologia/    # Captura GNS3
@@ -175,6 +176,10 @@ Consulta el [catálogo de evidencias con explicación técnica](evidencias/READM
 ```
 
 Las capturas de evidencia ya están publicadas en sus carpetas; las configuraciones saneadas de R1, SW1 y SW2 ya están publicadas; también se añadió la evidencia textual de DHCP. El enlace del video ya se añadió. Las comprobaciones opcionales y mejoras de seguridad se documentan como trabajo futuro.
+
+## 📦 Archivo de entrega
+
+[Descargar el TXT de la Práctica 5 con enlaces al repositorio y al video](entrega/Elian_Sterling_Severino_Mejia_2025-1331_P5.txt).
 
 ## 🔐 Seguridad
 
