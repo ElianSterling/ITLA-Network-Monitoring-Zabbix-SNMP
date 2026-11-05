@@ -38,6 +38,13 @@ Se observan métricas de tráfico entrante/saliente, estado de enlace y errores/
 
 Los equipos `R1`, `SW1` y `SW2` aparecen configurados en Zabbix con indicadores SNMP disponibles.
 
+
+## 07 — Prueba DHCP de PC1 y conectividad
+
+[**Ver salida de consola: DHCP, ping y binding R1**](dhcp/07-dhcp-pc1-y-conectividad.md)
+
+Se verificó que PC1 recibió `10.25.13.101/24` por DHCP desde R1 (`10.25.13.1`), con gateway y DNS correctos, que respondió a **5/5 pings** al router y que la concesión figura en `show ip dhcp binding`. Por ahora es evidencia textual; la captura gráfica sigue pendiente.
+
 ---
 
 ## Seguridad y publicación
