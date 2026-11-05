@@ -100,7 +100,7 @@ El tablero **ITLA | Network Infrastructure & SNMP Monitoring** incluye:
 | Prueba | Resultado observado |
 |---|---|
 | DHCP a PC1 | VPCS completó DHCP (`DDORA`), IP `10.25.13.101/24`, gateway `.1`, DNS `1.1.1.1` y `8.8.8.8`, lease de 7 días; concesión verificada en R1 (expira el 12 de noviembre de 2026) |
-| Conectividad en la LAN | Ping entre dispositivos verificado |
+| Conectividad en la LAN | PC1 → R1: 5 de 5 respuestas ICMP, tiempos de 6.719 a 11.692 ms |
 | Consultas SNMPv2c | R1, SW1 y SW2 responden al OID `sysName.0` |
 | Disponibilidad | 3/3 equipos disponibles en operación normal |
 | Gráficos de tráfico | Métricas RX/TX visibles en Zabbix |
@@ -142,6 +142,10 @@ La corrección se configuró de forma persistente mediante un servicio `systemd`
 |---|---|
 | ![Métricas de Gi0/0](evidencias/snmp/05-metricas-r1-gi0-0.png) | ![Equipos SNMP en Zabbix](evidencias/snmp/06-equipos-snmp.png) |
 
+### DHCP y conectividad de PC1
+
+[Ver evidencia 07: dirección DHCP, ping al gateway y concesión del router](evidencias/dhcp/07-dhcp-pc1-y-conectividad.md). La evidencia es una transcripción de consola; la captura PNG queda pendiente.
+
 Consulta el [catálogo de evidencias con explicación técnica](evidencias/README.md) para más detalles.
 
 ## 📂 Organización
@@ -158,12 +162,13 @@ Consulta el [catálogo de evidencias con explicación técnica](evidencias/READM
 │   ├── README.md
 │   ├── topologia/    # Captura GNS3
 │   ├── zabbix/      # Dashboard
+│   ├── dhcp/        # Evidencia textual de DHCP, ICMP y concesión
 │   ├── snmp/        # Métricas y equipos
 │   └── alertas/     # Incidencia y recuperación
 └── video/           # Enlace de demostración (pendiente)
 ```
 
-Las capturas de evidencia ya están publicadas en sus carpetas; las configuraciones saneadas de R1, SW1 y SW2 ya están publicadas; faltan las evidencias complementarias y el video.
+Las capturas de evidencia ya están publicadas en sus carpetas; las configuraciones saneadas de R1, SW1 y SW2 ya están publicadas; también se añadió la evidencia textual de DHCP. Faltan algunas capturas complementarias y el video.
 
 ## 🔐 Seguridad
 
