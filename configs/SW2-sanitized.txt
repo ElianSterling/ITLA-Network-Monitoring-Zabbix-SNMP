@@ -1,0 +1,26 @@
+# SW2 — Cisco IOSvL2 15.2 (versión saneada)
+
+## Red y administración
+- Hostname: SW2
+- VLAN de administración: 1, 10.25.13.3/24
+- Gateway: 10.25.13.1
+- Gi0/0: hacia SW1, up/up
+- Gi0/1: hacia PC1, up/up
+- Gi0/2: hacia Cloud1/ZABBIX-SRV, up/up
+- Gi0/3 y Gi1/0–Gi1/3: down/down
+
+## Configuración comprobada
+- Spanning Tree: PVST
+- HTTP y HTTPS de administración: deshabilitados
+- SNMPv2c: solo lectura, comunidad intencionalmente omitida
+- ACL ZABBIX-SNMP-ACL: permite 10.25.13.0/24
+- Contacto SNMP: Network-Administrator
+- Ubicación SNMP: ITLA-Homelab-Proxmox
+
+## Resultados de la consulta
+- 91,139 paquetes SNMP recibidos; 91,139 enviados
+- 26,783 Get requests; 1 Get-next; 0 Set requests
+- 0 errores por versión o comunidad
+- 0 traps enviadas
+
+No se publican comunidades SNMP ni banners propietarios.
