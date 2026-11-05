@@ -57,7 +57,7 @@ flowchart TB
   PC1["PC1 · VPCS<br/>Cliente DHCP"]
   CLOUD["Cloud1 · GNS3<br/>enp6s19"]
   BRIDGE["Proxmox · vmbr1"]
-  ZBX["ZABBIX-SRV · Debian 12<br/>10.25.13.101/24 (DHCP)<br/>Zabbix 7.0 LTS"]
+  ZBX["ZABBIX-SRV · Debian 12<br/>eth0: IP por DHCP (verificar)<br/>Zabbix 7.0 LTS"]
   R1 ---|"Gi0/0 ↔ Gi0/0"| SW1
   SW1 ---|"Gi0/1 ↔ Gi0/0"| SW2
   SW2 ---|"Gi0/1"| PC1
@@ -75,9 +75,11 @@ La conexión a Cloud1 enlaza el dominio de capa 2 de GNS3 con el contenedor de m
 | R1 | `10.25.13.1/24` | Estática |
 | SW1 (VLAN 1) | `10.25.13.2/24` | Estática |
 | SW2 (VLAN 1) | `10.25.13.3/24` | Estática |
-| PC1 | `10.25.13.100/24` | DHCP (observada en pruebas) |
-| ZABBIX-SRV (eth0) | `10.25.13.101/24` | DHCP (observada en pruebas) |
+| PC1 | `10.25.13.101/24` | DHCP (última prueba; antes obtuvo `.100`) |
+| ZABBIX-SRV (eth0) | Pendiente de verificar | DHCP; anteriormente usó `.101` |
 | Red del laboratorio | `10.25.13.0/24` | Privada |
+
+**Verificación pendiente:** PC1 acaba de recibir `.101`, dirección usada anteriormente por ZABBIX-SRV. Debe comprobarse la IP actual del contenedor y la tabla de concesiones del router antes de descartar un conflicto.
 
 **DHCP en R1:** pool `LAN-ZABBIX`; rango utilizable mediante exclusiones: `10.25.13.100–10.25.13.199`; gateway `10.25.13.1`; DNS `1.1.1.1` y `8.8.8.8`; concesión de 7 días.
 
@@ -97,7 +99,7 @@ El tablero **ITLA | Network Infrastructure & SNMP Monitoring** incluye:
 
 | Prueba | Resultado observado |
 |---|---|
-| DHCP a PC1 | Dirección `10.25.13.100` asignada |
+| DHCP a PC1 | VPCS completó DHCP (`DDORA`), IP `10.25.13.101/24`, gateway `.1`, DNS `1.1.1.1` y `8.8.8.8`, lease de 7 días (última prueba) |
 | Conectividad en la LAN | Ping entre dispositivos verificado |
 | Consultas SNMPv2c | R1, SW1 y SW2 responden al OID `sysName.0` |
 | Disponibilidad | 3/3 equipos disponibles en operación normal |
@@ -151,7 +153,7 @@ Consulta el [catálogo de evidencias con explicación técnica](evidencias/READM
 │   ├── arquitectura.md
 │   ├── monitoreo-zabbix.md
 │   └── troubleshooting.md
-├── configs/         # Exportaciones Cisco saneadas (pendientes)
+├── configs/         # R1 sanitizado publicado; SW1 y SW2 pendientes
 ├── evidencias/
 │   ├── README.md
 │   ├── topologia/    # Captura GNS3
@@ -161,7 +163,7 @@ Consulta el [catálogo de evidencias con explicación técnica](evidencias/READM
 └── video/           # Enlace de demostración (pendiente)
 ```
 
-Las capturas de evidencia ya están publicadas en sus carpetas; las configuraciones Cisco sanitizadas y el video siguen pendientes de incorporación.
+Las capturas de evidencia ya están publicadas en sus carpetas; la configuración sanitizada de R1 está disponible y las de SW1 y SW2, además del video, siguen pendientes.
 
 ## 🔐 Seguridad
 
