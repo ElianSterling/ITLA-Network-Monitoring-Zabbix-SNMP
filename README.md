@@ -153,7 +153,7 @@ Consulta el [catálogo de evidencias con explicación técnica](evidencias/READM
 │   ├── arquitectura.md
 │   ├── monitoreo-zabbix.md
 │   └── troubleshooting.md
-├── configs/         # R1 sanitizado publicado; SW1 y SW2 pendientes
+├── configs/         # Configuraciones saneadas de R1, SW1 y SW2
 ├── evidencias/
 │   ├── README.md
 │   ├── topologia/    # Captura GNS3
@@ -163,7 +163,7 @@ Consulta el [catálogo de evidencias con explicación técnica](evidencias/READM
 └── video/           # Enlace de demostración (pendiente)
 ```
 
-Las capturas de evidencia ya están publicadas en sus carpetas; la configuración sanitizada de R1 está disponible y las de SW1 y SW2, además del video, siguen pendientes.
+Las capturas de evidencia ya están publicadas en sus carpetas; las configuraciones saneadas de R1, SW1 y SW2 ya están publicadas; faltan las evidencias complementarias y el video.
 
 ## 🔐 Seguridad
 
@@ -177,6 +177,8 @@ Las capturas de evidencia ya están publicadas en sus carpetas; la configuració
 - [Arquitectura y direccionamiento](docs/arquitectura.md)
 - [Instalación y monitoreo Zabbix](docs/monitoreo-zabbix.md)
 - [Solución de problemas SNMP](docs/troubleshooting.md)
+- [Configuraciones Cisco de R1, SW1 y SW2](configs/README.md)
+- [Validaciones Cisco: DHCP, interfaces y SNMP](docs/validaciones-cisco.md)
 
 ## 👨‍💻 Autor
 
