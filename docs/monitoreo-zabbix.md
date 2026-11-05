@@ -40,9 +40,13 @@ Zabbix registró eventos `Cisco IOS: Unavailable by ICMP ping` para R1 y SW1, as
 
 **Precaución:** no realizar este ejercicio en una red productiva. Un mismo enlace puede ser punto único de fallo para varias rutas de monitoreo.
 
-## Evidencias pendientes
+## Evidencias y demostración
 
-- Captura del dashboard normal y de cada gráfico.
-- Captura de los problemas disparados durante el fallo.
-- Captura de las recuperaciones y del estado 3/3.
-- Comandos de verificación de SNMP y los servicios (con secretos ocultos).
+- [Dashboard de Zabbix](../evidencias/zabbix/02-dashboard-zabbix.png).
+- [Alertas ICMP durante la caída](../evidencias/alertas/03-incidencia-icmp.png).
+- [Recuperación de R1 y SW1](../evidencias/alertas/04-recuperacion-incidentes.png).
+- [Disponibilidad SNMP de los dispositivos](../evidencias/snmp/06-equipos-snmp.png).
+- [Concesión DHCP de PC1 y ping al gateway](../evidencias/dhcp/07-dhcp-pc1-y-conectividad.md).
+- [Video demostrativo de la Práctica 5](https://youtu.be/V94S0YOxVjs) (enlace proporcionado por el autor; la reproducción no se ha validado independientemente).
+
+Las imágenes y las transcripciones corresponden a las pruebas realizadas; las configuraciones publicadas en `configs/` están sanitizadas. No se publican comunidades SNMP reales.
