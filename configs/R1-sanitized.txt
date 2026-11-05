@@ -1,0 +1,83 @@
+# R1 — Configuración Cisco IOSv 15.9 (sanitizada)
+# Proyecto: ITLA Network Monitoring — GNS3, Zabbix, SNMP
+#
+# Fuente: salida de 'show running-config' facilitada durante el laboratorio.
+# Esta copia conserva los parámetros funcionales de R1; se omiten líneas
+# en blanco, encabezados automáticos y banners de licencia propietarios.
+#
+# IMPORTANTE: [REDACTED_SNMP_COMMUNITY] NO es la comunidad real y
+# NO constituye una configuración lista para pegar sin adaptaciones.
+
+version 15.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+hostname R1
+no aaa new-model
+
+! DHCP: asignación a clientes de la LAN 10.25.13.0/24
+ip dhcp excluded-address 10.25.13.1 10.25.13.99
+ip dhcp excluded-address 10.25.13.200 10.25.13.254
+ip dhcp pool LAN-ZABBIX
+ network 10.25.13.0 255.255.255.0
+ default-router 10.25.13.1
+ dns-server 1.1.1.1 8.8.8.8
+ lease 7
+
+ip cef
+no ipv6 cef
+multilink bundle-name authenticated
+
+interface GigabitEthernet0/0
+ description LAN-ZABBIX-SNMP
+ ip address 10.25.13.1 255.255.255.0
+ duplex auto
+ speed auto
+ media-type rj45
+
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+
+interface GigabitEthernet0/2
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+
+interface GigabitEthernet0/3
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+ media-type rj45
+
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+
+! ACL actualmente configurada (laboratorio):
+! permite consultas SNMP provenientes de cualquier IP de la subred /24.
+ip access-list standard ZABBIX-SNMP-ACL
+ permit 10.25.13.0 0.0.0.255
+
+ipv6 ioam timestamp
+
+! Comunidad original reemplazada intencionalmente.
+snmp-server community [REDACTED_SNMP_COMMUNITY] RO ZABBIX-SNMP-ACL
+snmp-server location ITLA-Homelab-Proxmox
+snmp-server contact Network-Administrator
+
+control-plane
+line con 0
+line aux 0
+line vty 0 4
+ login
+ transport input none
+
+no scheduler allocate
+end
