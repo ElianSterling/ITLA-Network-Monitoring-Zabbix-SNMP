@@ -1,0 +1,70 @@
+! SW1 - Cisco IOSvL2 15.2
+! Configuracion documentada y sanitizada
+! Comunidad SNMP y banners propietarios eliminados.
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+service compress-config
+hostname SW1
+no aaa new-model
+ip cef
+no ipv6 cef
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface GigabitEthernet0/0
+ negotiation auto
+!
+interface GigabitEthernet0/1
+ negotiation auto
+!
+interface GigabitEthernet0/2
+ negotiation auto
+!
+interface GigabitEthernet0/3
+ negotiation auto
+!
+interface GigabitEthernet1/0
+ negotiation auto
+!
+interface GigabitEthernet1/1
+ negotiation auto
+!
+interface GigabitEthernet1/2
+ negotiation auto
+!
+interface GigabitEthernet1/3
+ negotiation auto
+!
+interface Vlan1
+ description MANAGEMENT-SNMP
+ ip address 10.25.13.2 255.255.255.0
+!
+ip default-gateway 10.25.13.1
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+!
+ip access-list standard ZABBIX-SNMP-ACL
+ permit 10.25.13.0 0.0.0.255
+!
+! [REDACTED] Comunidad SNMPv2c RO asociada a ZABBIX-SNMP-ACL.
+snmp-server location ITLA-Homelab-Proxmox
+snmp-server contact Network-Administrator
+!
+control-plane
+line con 0
+line aux 0
+line vty 0 4
+ login
+end
+
+! VALIDACION EN LA CAPTURA
+! Gi0/0 up/up; Gi0/1 up/up; Vlan1 10.25.13.2 up/up
+! VLAN 1 active, Gi0/0 - Gi1/3
+! show snmp: 90762 paquetes entrada y salida; 26668 Get-request;
+! 1 Get-next; 0 Set; 0 errores de version o comunidad.
