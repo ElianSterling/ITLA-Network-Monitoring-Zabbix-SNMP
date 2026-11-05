@@ -120,6 +120,12 @@ ethtool -K eth0 tx off
 
 La corrección se configuró de forma persistente mediante un servicio `systemd` de tipo `oneshot`. Consulta [Troubleshooting](docs/troubleshooting.md) para diagnóstico y verificaciones.
 
+## 🎬 Video demostrativo — Práctica 5
+
+**[▶️ Ver la demostración en YouTube](https://youtu.be/V94S0YOxVjs)**
+
+Video compartido por el autor, con recorrido del proyecto y una demostración guiada de falla y recuperación de una interfaz de SW2. Consulta [la ficha del video](video/enlace-video.md). *El contenido exacto del enlace no ha sido verificado de forma independiente.*
+
 ## 📸 Evidencias reales
 
 ### Topología implementada en GNS3
@@ -165,10 +171,10 @@ Consulta el [catálogo de evidencias con explicación técnica](evidencias/READM
 │   ├── dhcp/        # Evidencia textual de DHCP, ICMP y concesión
 │   ├── snmp/        # Métricas y equipos
 │   └── alertas/     # Incidencia y recuperación
-└── video/           # Enlace de demostración (pendiente)
+└── video/           # Enlace del video demostrativo de la práctica
 ```
 
-Las capturas de evidencia ya están publicadas en sus carpetas; las configuraciones saneadas de R1, SW1 y SW2 ya están publicadas; también se añadió la evidencia textual de DHCP. Faltan algunas capturas complementarias y el video.
+Las capturas de evidencia ya están publicadas en sus carpetas; las configuraciones saneadas de R1, SW1 y SW2 ya están publicadas; también se añadió la evidencia textual de DHCP. El enlace del video ya se añadió. Las comprobaciones opcionales y mejoras de seguridad se documentan como trabajo futuro.
 
 ## 🔐 Seguridad
 
@@ -184,6 +190,7 @@ Las capturas de evidencia ya están publicadas en sus carpetas; las configuracio
 - [Solución de problemas SNMP](docs/troubleshooting.md)
 - [Configuraciones Cisco de R1, SW1 y SW2](configs/README.md)
 - [Validaciones Cisco: DHCP, interfaces y SNMP](docs/validaciones-cisco.md)
+- [Video demostrativo de la Práctica 5](video/enlace-video.md)
 
 ## 👨‍💻 Autor
 
